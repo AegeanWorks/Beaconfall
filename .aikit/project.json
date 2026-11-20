@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "name": "beaconfall",
+  "test_command": "python -m unittest discover -s tests",
+  "topics": [
+    "aikit",
+    "aikit-integrated",
+    "source-available",
+    "aegean-game-license",
+    "drm-free",
+    "commercial-license"
+  ],
+  "gates": {},
+  "ui_required": false,
+  "map_coverage": "skip",
+  "review_required": false,
+  "mechanics_required": false,
+  "test_budget_ms": null,
+  "python_min": null,
+  "scratch_paths": [],
+  "gate_outputs": [],
+  "created": "2026-11-20"
+}
