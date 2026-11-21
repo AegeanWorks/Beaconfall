@@ -19,5 +19,10 @@
   "python_min": null,
   "scratch_paths": [],
   "gate_outputs": [],
-  "created": "2026-11-20"
+  "created": "2026-11-20",
+  "has_ui": true,
+  "ui_kind": "game",
+  "ui_evidence": [],
+  "ui_checked_at": "2026-11-20",
+  "ui_source": "manual"
 }

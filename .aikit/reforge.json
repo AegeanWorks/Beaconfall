@@ -1,0 +1,622 @@
+{
+  "schema": 2,
+  "next_run_id": 2,
+  "active_run": null,
+  "last_run": "run-1",
+  "runs": [
+    {
+      "id": "run-1",
+      "start": 2,
+      "step": 1,
+      "stop": null,
+      "stage": 1,
+      "window": 1,
+      "audited_commits": [
+        "d8285a2c0ac535df94e0f673fc87733aa5c533de"
+      ],
+      "status": "completed",
+      "created": "2026-11-21T19:30:54",
+      "updated": "2026-11-21T19:53:53",
+      "last_audit": {
+        "run": "run-1",
+        "stage": 1,
+        "window": 1,
+        "commits": [
+          "d8285a2c0ac535df94e0f673fc87733aa5c533de"
+        ],
+        "new_commits": [
+          "d8285a2c0ac535df94e0f673fc87733aa5c533de"
+        ],
+        "prior_commits": [],
+        "findings": [
+          {
+            "code": "review-placeholder-asset-manifest",
+            "category": "improvement",
+            "severity": "low",
+            "path": "ASSETS.md",
+            "line": 8,
+            "message": "The asset manifest ships a literal \"Replace with the real inventory\" placeholder claiming art, audio and level data live under assets/. The game renders everything procedurally through Keystone primitives and bundles no such assets, so the license manifest misstates what is offered and leaves an unfilled scaffold note in a shipped document.",
+            "evidence": "| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |",
+            "commit": "d8285a2c0ac535df94e0f673fc87733aa5c533de",
+            "hunk": "d8285a2c0ac5:ASSETS.md#1",
+            "symbol": "",
+            "introduced": true,
+            "reproducible": false,
+            "fixable": true,
+            "interaction": "",
+            "repaired": true,
+            "source": "review",
+            "patch_old": "| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |",
+            "patch_new": "| `assets/screenshots/` | gameplay screenshots | AegeanWorks | AGL-1.1 | Player captures; all game visuals are rendered procedurally, no bundled art or audio |"
+          },
+          {
+            "code": "review-stale-inventory-handler",
+            "category": "improvement",
+            "severity": "low",
+            "path": "inventory.py",
+            "line": 6,
+            "message": "The inventory advertises a \"handler|run|demo-run\" control but no demo-run handler exists anywhere in the project, and the real keyboard controls are absent. The inventory is the project-owned control manifest, so it should list the controls the game actually binds.",
+            "evidence": "print('handler|run|demo-run')",
+            "commit": "d8285a2c0ac535df94e0f673fc87733aa5c533de",
+            "hunk": "d8285a2c0ac5:inventory.py#1",
+            "symbol": "",
+            "introduced": true,
+            "reproducible": false,
+            "fixable": true,
+            "interaction": "",
+            "repaired": true,
+            "source": "review",
+            "patch_old": "    print('handler|run|demo-run')",
+            "patch_new": "    print('key|start|space')\n    print('key|restart|r')\n    print('key|course|f')\n    print('key|ghost|g')\n    print('key|pause|p')\n    print('key|boost|left_shift')\n    print('axis|forward|w/s')\n    print('axis|steer|a/d')"
+          }
+        ],
+        "repairs": [
+          {
+            "code": "review-placeholder-asset-manifest",
+            "path": "ASSETS.md",
+            "line": 8,
+            "summary": "applied review suggestion: The asset manifest ships a literal \"Replace with the real inventory\" placeholder",
+            "test_name": "",
+            "applied": true
+          },
+          {
+            "code": "review-stale-inventory-handler",
+            "path": "inventory.py",
+            "line": 6,
+            "summary": "applied review suggestion: The inventory advertises a \"handler|run|demo-run\" control but no demo-run handle",
+            "test_name": "",
+            "applied": true
+          }
+        ],
+        "counts": {
+          "improvement": 2
+        },
+        "reviewed": 18,
+        "review": {
+          "status": "reviewed",
+          "rejected": [],
+          "files": [
+            ".aikit/bench-baseline.json",
+            ".aikit/bench-delta.json",
+            ".aikit/compat.json",
+            ".aikit/decisions.md",
+            ".aikit/evidence.json",
+            ".aikit/guidelines.md",
+            ".aikit/layout-map.json",
+            ".aikit/project.json",
+            ".gitattributes",
+            ".gitignore",
+            "ASSETS.md",
+            "COMMERCIAL.md",
+            "LICENSE",
+            "LICENSES/LicenseRef-AGL-1.1.txt",
+            "README.md",
+            "REUSE.toml",
+            "demo.py",
+            "inventory.py"
+          ],
+          "packet": ".aikit/reforge.reviews/stage-run-1-1-d8285a2c0ac5.md",
+          "redacted": 0,
+          "coverage": {
+            "reported": 18,
+            "total": 18,
+            "carried": [],
+            "missing": [],
+            "unknown": [],
+            "invalid": []
+          },
+          "findings": [
+            {
+              "code": "review-placeholder-asset-manifest",
+              "category": "improvement",
+              "severity": "low",
+              "path": "ASSETS.md",
+              "line": 8,
+              "message": "The asset manifest ships a literal \"Replace with the real inventory\" placeholder claiming art, audio and level data live under assets/. The game renders everything procedurally through Keystone primitives and bundles no such assets, so the license manifest misstates what is offered and leaves an unfilled scaffold note in a shipped document.",
+              "evidence": "| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |",
+              "commit": "d8285a2c0ac535df94e0f673fc87733aa5c533de",
+              "hunk": "d8285a2c0ac5:ASSETS.md#1",
+              "symbol": "",
+              "introduced": true,
+              "reproducible": false,
+              "fixable": true,
+              "interaction": "",
+              "repaired": false,
+              "source": "review",
+              "patch_old": "| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |",
+              "patch_new": "| `assets/screenshots/` | gameplay screenshots | AegeanWorks | AGL-1.1 | Player captures; all game visuals are rendered procedurally, no bundled art or audio |"
+            },
+            {
+              "code": "review-stale-inventory-handler",
+              "category": "improvement",
+              "severity": "low",
+              "path": "inventory.py",
+              "line": 6,
+              "message": "The inventory advertises a \"handler|run|demo-run\" control but no demo-run handler exists anywhere in the project, and the real keyboard controls are absent. The inventory is the project-owned control manifest, so it should list the controls the game actually binds.",
+              "evidence": "print('handler|run|demo-run')",
+              "commit": "d8285a2c0ac535df94e0f673fc87733aa5c533de",
+              "hunk": "d8285a2c0ac5:inventory.py#1",
+              "symbol": "",
+              "introduced": true,
+              "reproducible": false,
+              "fixable": true,
+              "interaction": "",
+              "repaired": false,
+              "source": "review",
+              "patch_old": "    print('handler|run|demo-run')",
+              "patch_new": "    print('key|start|space')\n    print('key|restart|r')\n    print('key|course|f')\n    print('key|ghost|g')\n    print('key|pause|p')\n    print('key|boost|left_shift')\n    print('axis|forward|w/s')\n    print('axis|steer|a/d')"
+            }
+          ],
+          "attestations": []
+        },
+        "skipped": [],
+        "tests": {
+          "command": "C:\\Python314\\python.exe -m unittest discover tests",
+          "code": 0,
+          "passed": true,
+          "output": "...................................................................................................................................................................................................................Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpghhlz6s7\\records.json.corrupt_1795280026133401100; trying backup.\nWarning: invalid record backup moved to ~\\AppData\\Local\\Temp\\tmpghhlz6s7\\records.json.bak.corrupt_1795280026137203600.\n....Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json.corrupt_1795280026353237100; trying backup.\nWarning: ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json is missing; using ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json.bak.\n..Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpkuj60_5o\\records.json.corrupt_1795280026571151200; trying backup.\n..Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpxcxqg_v_\\records.json.corrupt_1795280026603692300; trying backup.\n...Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpugw0zmqn\\records.json.corrupt_1795280026658306200; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpaaq5em70\\records.json.corrupt_1795280026670827800; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpo6_abzyl\\records.json.corrupt_1795280026683369600; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmp27anu6m7\\records.json.corrupt_1795280026695921900; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpeditd2v7\\records.json.corrupt_1795280026708719900; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmproym1h62\\records.json.corrupt_1795280026723334100; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpcgpfsupv\\records.json.corrupt_1795280026737489700; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmptmdodvrp\\records.json.corrupt_1795280026762123800; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpmm5yj1a7\\records.json.corrupt_1795280026778553900; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpo0ouglrw\\records.json.corrupt_1795280026800668100; trying backup.\n..............................\n----------------------------------------------------------------------\nRan 261 tests in 15.663s\n\nOK",
+          "tail": [
+            "...................................................................................................................................................................................................................Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpghhlz6s7\\records.json.corrupt_1795280026133401100; trying backup.",
+            "Warning: invalid record backup moved to ~\\AppData\\Local\\Temp\\tmpghhlz6s7\\records.json.bak.corrupt_1795280026137203600.",
+            "....Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json.corrupt_1795280026353237100; trying backup.",
+            "Warning: ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json is missing; using ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json.bak.",
+            "..Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpkuj60_5o\\records.json.corrupt_1795280026571151200; trying backup.",
+            "..Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpxcxqg_v_\\records.json.corrupt_1795280026603692300; trying backup.",
+            "...Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpugw0zmqn\\records.json.corrupt_1795280026658306200; trying backup.",
+            ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpaaq5em70\\records.json.corrupt_1795280026670827800; trying backup.",
+            ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpo6_abzyl\\records.json.corrupt_1795280026683369600; trying backup.",
+            ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmp27anu6m7\\records.json.corrupt_1795280026695921900; trying backup.",
+            ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpeditd2v7\\records.json.corrupt_1795280026708719900; trying backup.",
+            ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmproym1h62\\records.json.corrupt_1795280026723334100; trying backup.",
+            ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpcgpfsupv\\records.json.corrupt_1795280026737489700; trying backup.",
+            ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmptmdodvrp\\records.json.corrupt_1795280026762123800; trying backup.",
+            ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpmm5yj1a7\\records.json.corrupt_1795280026778553900; trying backup.",
+            ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpo0ouglrw\\records.json.corrupt_1795280026800668100; trying backup.",
+            "..............................",
+            "----------------------------------------------------------------------",
+            "Ran 261 tests in 15.663s",
+            "OK"
+          ]
+        },
+        "gates": {
+          "artifacts": [
+            ".aikit/codebase_map.md"
+          ]
+        },
+        "delivery": {
+          "commit": "",
+          "short": "",
+          "pushed": false,
+          "push_error": null,
+          "empty": false,
+          "timestamp": "2026-11-21T19:53:53"
+        },
+        "timestamp": "2026-11-21T19:31:35",
+        "dirty_targets": []
+      },
+      "history": [
+        {
+          "run": "run-1",
+          "stage": 1,
+          "window": 1,
+          "commits": [
+            "d8285a2c0ac535df94e0f673fc87733aa5c533de"
+          ],
+          "new_commits": [
+            "d8285a2c0ac535df94e0f673fc87733aa5c533de"
+          ],
+          "prior_commits": [],
+          "findings": [
+            {
+              "code": "review-placeholder-asset-manifest",
+              "category": "improvement",
+              "severity": "low",
+              "path": "ASSETS.md",
+              "line": 8,
+              "message": "The asset manifest ships a literal \"Replace with the real inventory\" placeholder claiming art, audio and level data live under assets/. The game renders everything procedurally through Keystone primitives and bundles no such assets, so the license manifest misstates what is offered and leaves an unfilled scaffold note in a shipped document.",
+              "evidence": "| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |",
+              "commit": "d8285a2c0ac535df94e0f673fc87733aa5c533de",
+              "hunk": "d8285a2c0ac5:ASSETS.md#1",
+              "symbol": "",
+              "introduced": true,
+              "reproducible": false,
+              "fixable": true,
+              "interaction": "",
+              "repaired": true,
+              "source": "review",
+              "patch_old": "| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |",
+              "patch_new": "| `assets/screenshots/` | gameplay screenshots | AegeanWorks | AGL-1.1 | Player captures; all game visuals are rendered procedurally, no bundled art or audio |"
+            },
+            {
+              "code": "review-stale-inventory-handler",
+              "category": "improvement",
+              "severity": "low",
+              "path": "inventory.py",
+              "line": 6,
+              "message": "The inventory advertises a \"handler|run|demo-run\" control but no demo-run handler exists anywhere in the project, and the real keyboard controls are absent. The inventory is the project-owned control manifest, so it should list the controls the game actually binds.",
+              "evidence": "print('handler|run|demo-run')",
+              "commit": "d8285a2c0ac535df94e0f673fc87733aa5c533de",
+              "hunk": "d8285a2c0ac5:inventory.py#1",
+              "symbol": "",
+              "introduced": true,
+              "reproducible": false,
+              "fixable": true,
+              "interaction": "",
+              "repaired": true,
+              "source": "review",
+              "patch_old": "    print('handler|run|demo-run')",
+              "patch_new": "    print('key|start|space')\n    print('key|restart|r')\n    print('key|course|f')\n    print('key|ghost|g')\n    print('key|pause|p')\n    print('key|boost|left_shift')\n    print('axis|forward|w/s')\n    print('axis|steer|a/d')"
+            }
+          ],
+          "repairs": [
+            {
+              "code": "review-placeholder-asset-manifest",
+              "path": "ASSETS.md",
+              "line": 8,
+              "summary": "applied review suggestion: The asset manifest ships a literal \"Replace with the real inventory\" placeholder",
+              "test_name": "",
+              "applied": true
+            },
+            {
+              "code": "review-stale-inventory-handler",
+              "path": "inventory.py",
+              "line": 6,
+              "summary": "applied review suggestion: The inventory advertises a \"handler|run|demo-run\" control but no demo-run handle",
+              "test_name": "",
+              "applied": true
+            }
+          ],
+          "counts": {
+            "improvement": 2
+          },
+          "reviewed": 18,
+          "review": {
+            "status": "reviewed",
+            "rejected": [],
+            "files": [
+              ".aikit/bench-baseline.json",
+              ".aikit/bench-delta.json",
+              ".aikit/compat.json",
+              ".aikit/decisions.md",
+              ".aikit/evidence.json",
+              ".aikit/guidelines.md",
+              ".aikit/layout-map.json",
+              ".aikit/project.json",
+              ".gitattributes",
+              ".gitignore",
+              "ASSETS.md",
+              "COMMERCIAL.md",
+              "LICENSE",
+              "LICENSES/LicenseRef-AGL-1.1.txt",
+              "README.md",
+              "REUSE.toml",
+              "demo.py",
+              "inventory.py"
+            ],
+            "packet": ".aikit/reforge.reviews/stage-run-1-1-d8285a2c0ac5.md",
+            "redacted": 0,
+            "coverage": {
+              "reported": 18,
+              "total": 18,
+              "carried": [],
+              "missing": [],
+              "unknown": [],
+              "invalid": []
+            },
+            "findings": [
+              {
+                "code": "review-placeholder-asset-manifest",
+                "category": "improvement",
+                "severity": "low",
+                "path": "ASSETS.md",
+                "line": 8,
+                "message": "The asset manifest ships a literal \"Replace with the real inventory\" placeholder claiming art, audio and level data live under assets/. The game renders everything procedurally through Keystone primitives and bundles no such assets, so the license manifest misstates what is offered and leaves an unfilled scaffold note in a shipped document.",
+                "evidence": "| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |",
+                "commit": "d8285a2c0ac535df94e0f673fc87733aa5c533de",
+                "hunk": "d8285a2c0ac5:ASSETS.md#1",
+                "symbol": "",
+                "introduced": true,
+                "reproducible": false,
+                "fixable": true,
+                "interaction": "",
+                "repaired": false,
+                "source": "review",
+                "patch_old": "| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |",
+                "patch_new": "| `assets/screenshots/` | gameplay screenshots | AegeanWorks | AGL-1.1 | Player captures; all game visuals are rendered procedurally, no bundled art or audio |"
+              },
+              {
+                "code": "review-stale-inventory-handler",
+                "category": "improvement",
+                "severity": "low",
+                "path": "inventory.py",
+                "line": 6,
+                "message": "The inventory advertises a \"handler|run|demo-run\" control but no demo-run handler exists anywhere in the project, and the real keyboard controls are absent. The inventory is the project-owned control manifest, so it should list the controls the game actually binds.",
+                "evidence": "print('handler|run|demo-run')",
+                "commit": "d8285a2c0ac535df94e0f673fc87733aa5c533de",
+                "hunk": "d8285a2c0ac5:inventory.py#1",
+                "symbol": "",
+                "introduced": true,
+                "reproducible": false,
+                "fixable": true,
+                "interaction": "",
+                "repaired": false,
+                "source": "review",
+                "patch_old": "    print('handler|run|demo-run')",
+                "patch_new": "    print('key|start|space')\n    print('key|restart|r')\n    print('key|course|f')\n    print('key|ghost|g')\n    print('key|pause|p')\n    print('key|boost|left_shift')\n    print('axis|forward|w/s')\n    print('axis|steer|a/d')"
+              }
+            ],
+            "attestations": []
+          },
+          "skipped": [],
+          "tests": {
+            "command": "C:\\Python314\\python.exe -m unittest discover tests",
+            "code": 0,
+            "passed": true,
+            "output": "...................................................................................................................................................................................................................Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpghhlz6s7\\records.json.corrupt_1795280026133401100; trying backup.\nWarning: invalid record backup moved to ~\\AppData\\Local\\Temp\\tmpghhlz6s7\\records.json.bak.corrupt_1795280026137203600.\n....Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json.corrupt_1795280026353237100; trying backup.\nWarning: ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json is missing; using ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json.bak.\n..Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpkuj60_5o\\records.json.corrupt_1795280026571151200; trying backup.\n..Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpxcxqg_v_\\records.json.corrupt_1795280026603692300; trying backup.\n...Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpugw0zmqn\\records.json.corrupt_1795280026658306200; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpaaq5em70\\records.json.corrupt_1795280026670827800; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpo6_abzyl\\records.json.corrupt_1795280026683369600; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmp27anu6m7\\records.json.corrupt_1795280026695921900; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpeditd2v7\\records.json.corrupt_1795280026708719900; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmproym1h62\\records.json.corrupt_1795280026723334100; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpcgpfsupv\\records.json.corrupt_1795280026737489700; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmptmdodvrp\\records.json.corrupt_1795280026762123800; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpmm5yj1a7\\records.json.corrupt_1795280026778553900; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpo0ouglrw\\records.json.corrupt_1795280026800668100; trying backup.\n..............................\n----------------------------------------------------------------------\nRan 261 tests in 15.663s\n\nOK",
+            "tail": [
+              "...................................................................................................................................................................................................................Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpghhlz6s7\\records.json.corrupt_1795280026133401100; trying backup.",
+              "Warning: invalid record backup moved to ~\\AppData\\Local\\Temp\\tmpghhlz6s7\\records.json.bak.corrupt_1795280026137203600.",
+              "....Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json.corrupt_1795280026353237100; trying backup.",
+              "Warning: ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json is missing; using ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json.bak.",
+              "..Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpkuj60_5o\\records.json.corrupt_1795280026571151200; trying backup.",
+              "..Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpxcxqg_v_\\records.json.corrupt_1795280026603692300; trying backup.",
+              "...Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpugw0zmqn\\records.json.corrupt_1795280026658306200; trying backup.",
+              ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpaaq5em70\\records.json.corrupt_1795280026670827800; trying backup.",
+              ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpo6_abzyl\\records.json.corrupt_1795280026683369600; trying backup.",
+              ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmp27anu6m7\\records.json.corrupt_1795280026695921900; trying backup.",
+              ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpeditd2v7\\records.json.corrupt_1795280026708719900; trying backup.",
+              ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmproym1h62\\records.json.corrupt_1795280026723334100; trying backup.",
+              ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpcgpfsupv\\records.json.corrupt_1795280026737489700; trying backup.",
+              ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmptmdodvrp\\records.json.corrupt_1795280026762123800; trying backup.",
+              ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpmm5yj1a7\\records.json.corrupt_1795280026778553900; trying backup.",
+              ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpo0ouglrw\\records.json.corrupt_1795280026800668100; trying backup.",
+              "..............................",
+              "----------------------------------------------------------------------",
+              "Ran 261 tests in 15.663s",
+              "OK"
+            ]
+          },
+          "gates": {
+            "artifacts": [
+              ".aikit/codebase_map.md"
+            ]
+          },
+          "delivery": {
+            "commit": "",
+            "short": "",
+            "pushed": false,
+            "push_error": null,
+            "empty": false,
+            "timestamp": "2026-11-21T19:53:53"
+          },
+          "timestamp": "2026-11-21T19:31:35",
+          "dirty_targets": []
+        }
+      ],
+      "total_commits": 1
+    }
+  ],
+  "stage": 1,
+  "window": 1,
+  "audited_commits": [
+    "d8285a2c0ac535df94e0f673fc87733aa5c533de"
+  ],
+  "last_audit": {
+    "run": "run-1",
+    "stage": 1,
+    "window": 1,
+    "commits": [
+      "d8285a2c0ac535df94e0f673fc87733aa5c533de"
+    ],
+    "new_commits": [
+      "d8285a2c0ac535df94e0f673fc87733aa5c533de"
+    ],
+    "prior_commits": [],
+    "findings": [
+      {
+        "code": "review-placeholder-asset-manifest",
+        "category": "improvement",
+        "severity": "low",
+        "path": "ASSETS.md",
+        "line": 8,
+        "message": "The asset manifest ships a literal \"Replace with the real inventory\" placeholder claiming art, audio and level data live under assets/. The game renders everything procedurally through Keystone primitives and bundles no such assets, so the license manifest misstates what is offered and leaves an unfilled scaffold note in a shipped document.",
+        "evidence": "| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |",
+        "commit": "d8285a2c0ac535df94e0f673fc87733aa5c533de",
+        "hunk": "d8285a2c0ac5:ASSETS.md#1",
+        "symbol": "",
+        "introduced": true,
+        "reproducible": false,
+        "fixable": true,
+        "interaction": "",
+        "repaired": true,
+        "source": "review",
+        "patch_old": "| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |",
+        "patch_new": "| `assets/screenshots/` | gameplay screenshots | AegeanWorks | AGL-1.1 | Player captures; all game visuals are rendered procedurally, no bundled art or audio |"
+      },
+      {
+        "code": "review-stale-inventory-handler",
+        "category": "improvement",
+        "severity": "low",
+        "path": "inventory.py",
+        "line": 6,
+        "message": "The inventory advertises a \"handler|run|demo-run\" control but no demo-run handler exists anywhere in the project, and the real keyboard controls are absent. The inventory is the project-owned control manifest, so it should list the controls the game actually binds.",
+        "evidence": "print('handler|run|demo-run')",
+        "commit": "d8285a2c0ac535df94e0f673fc87733aa5c533de",
+        "hunk": "d8285a2c0ac5:inventory.py#1",
+        "symbol": "",
+        "introduced": true,
+        "reproducible": false,
+        "fixable": true,
+        "interaction": "",
+        "repaired": true,
+        "source": "review",
+        "patch_old": "    print('handler|run|demo-run')",
+        "patch_new": "    print('key|start|space')\n    print('key|restart|r')\n    print('key|course|f')\n    print('key|ghost|g')\n    print('key|pause|p')\n    print('key|boost|left_shift')\n    print('axis|forward|w/s')\n    print('axis|steer|a/d')"
+      }
+    ],
+    "repairs": [
+      {
+        "code": "review-placeholder-asset-manifest",
+        "path": "ASSETS.md",
+        "line": 8,
+        "summary": "applied review suggestion: The asset manifest ships a literal \"Replace with the real inventory\" placeholder",
+        "test_name": "",
+        "applied": true
+      },
+      {
+        "code": "review-stale-inventory-handler",
+        "path": "inventory.py",
+        "line": 6,
+        "summary": "applied review suggestion: The inventory advertises a \"handler|run|demo-run\" control but no demo-run handle",
+        "test_name": "",
+        "applied": true
+      }
+    ],
+    "counts": {
+      "improvement": 2
+    },
+    "reviewed": 18,
+    "review": {
+      "status": "reviewed",
+      "rejected": [],
+      "files": [
+        ".aikit/bench-baseline.json",
+        ".aikit/bench-delta.json",
+        ".aikit/compat.json",
+        ".aikit/decisions.md",
+        ".aikit/evidence.json",
+        ".aikit/guidelines.md",
+        ".aikit/layout-map.json",
+        ".aikit/project.json",
+        ".gitattributes",
+        ".gitignore",
+        "ASSETS.md",
+        "COMMERCIAL.md",
+        "LICENSE",
+        "LICENSES/LicenseRef-AGL-1.1.txt",
+        "README.md",
+        "REUSE.toml",
+        "demo.py",
+        "inventory.py"
+      ],
+      "packet": ".aikit/reforge.reviews/stage-run-1-1-d8285a2c0ac5.md",
+      "redacted": 0,
+      "coverage": {
+        "reported": 18,
+        "total": 18,
+        "carried": [],
+        "missing": [],
+        "unknown": [],
+        "invalid": []
+      },
+      "findings": [
+        {
+          "code": "review-placeholder-asset-manifest",
+          "category": "improvement",
+          "severity": "low",
+          "path": "ASSETS.md",
+          "line": 8,
+          "message": "The asset manifest ships a literal \"Replace with the real inventory\" placeholder claiming art, audio and level data live under assets/. The game renders everything procedurally through Keystone primitives and bundles no such assets, so the license manifest misstates what is offered and leaves an unfilled scaffold note in a shipped document.",
+          "evidence": "| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |",
+          "commit": "d8285a2c0ac535df94e0f673fc87733aa5c533de",
+          "hunk": "d8285a2c0ac5:ASSETS.md#1",
+          "symbol": "",
+          "introduced": true,
+          "reproducible": false,
+          "fixable": true,
+          "interaction": "",
+          "repaired": false,
+          "source": "review",
+          "patch_old": "| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |",
+          "patch_new": "| `assets/screenshots/` | gameplay screenshots | AegeanWorks | AGL-1.1 | Player captures; all game visuals are rendered procedurally, no bundled art or audio |"
+        },
+        {
+          "code": "review-stale-inventory-handler",
+          "category": "improvement",
+          "severity": "low",
+          "path": "inventory.py",
+          "line": 6,
+          "message": "The inventory advertises a \"handler|run|demo-run\" control but no demo-run handler exists anywhere in the project, and the real keyboard controls are absent. The inventory is the project-owned control manifest, so it should list the controls the game actually binds.",
+          "evidence": "print('handler|run|demo-run')",
+          "commit": "d8285a2c0ac535df94e0f673fc87733aa5c533de",
+          "hunk": "d8285a2c0ac5:inventory.py#1",
+          "symbol": "",
+          "introduced": true,
+          "reproducible": false,
+          "fixable": true,
+          "interaction": "",
+          "repaired": false,
+          "source": "review",
+          "patch_old": "    print('handler|run|demo-run')",
+          "patch_new": "    print('key|start|space')\n    print('key|restart|r')\n    print('key|course|f')\n    print('key|ghost|g')\n    print('key|pause|p')\n    print('key|boost|left_shift')\n    print('axis|forward|w/s')\n    print('axis|steer|a/d')"
+        }
+      ],
+      "attestations": []
+    },
+    "skipped": [],
+    "tests": {
+      "command": "C:\\Python314\\python.exe -m unittest discover tests",
+      "code": 0,
+      "passed": true,
+      "output": "...................................................................................................................................................................................................................Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpghhlz6s7\\records.json.corrupt_1795280026133401100; trying backup.\nWarning: invalid record backup moved to ~\\AppData\\Local\\Temp\\tmpghhlz6s7\\records.json.bak.corrupt_1795280026137203600.\n....Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json.corrupt_1795280026353237100; trying backup.\nWarning: ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json is missing; using ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json.bak.\n..Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpkuj60_5o\\records.json.corrupt_1795280026571151200; trying backup.\n..Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpxcxqg_v_\\records.json.corrupt_1795280026603692300; trying backup.\n...Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpugw0zmqn\\records.json.corrupt_1795280026658306200; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpaaq5em70\\records.json.corrupt_1795280026670827800; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpo6_abzyl\\records.json.corrupt_1795280026683369600; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmp27anu6m7\\records.json.corrupt_1795280026695921900; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpeditd2v7\\records.json.corrupt_1795280026708719900; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmproym1h62\\records.json.corrupt_1795280026723334100; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpcgpfsupv\\records.json.corrupt_1795280026737489700; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmptmdodvrp\\records.json.corrupt_1795280026762123800; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpmm5yj1a7\\records.json.corrupt_1795280026778553900; trying backup.\n.Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpo0ouglrw\\records.json.corrupt_1795280026800668100; trying backup.\n..............................\n----------------------------------------------------------------------\nRan 261 tests in 15.663s\n\nOK",
+      "tail": [
+        "...................................................................................................................................................................................................................Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpghhlz6s7\\records.json.corrupt_1795280026133401100; trying backup.",
+        "Warning: invalid record backup moved to ~\\AppData\\Local\\Temp\\tmpghhlz6s7\\records.json.bak.corrupt_1795280026137203600.",
+        "....Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json.corrupt_1795280026353237100; trying backup.",
+        "Warning: ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json is missing; using ~\\AppData\\Local\\Temp\\tmpp2au35d7\\records.json.bak.",
+        "..Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpkuj60_5o\\records.json.corrupt_1795280026571151200; trying backup.",
+        "..Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpxcxqg_v_\\records.json.corrupt_1795280026603692300; trying backup.",
+        "...Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpugw0zmqn\\records.json.corrupt_1795280026658306200; trying backup.",
+        ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpaaq5em70\\records.json.corrupt_1795280026670827800; trying backup.",
+        ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpo6_abzyl\\records.json.corrupt_1795280026683369600; trying backup.",
+        ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmp27anu6m7\\records.json.corrupt_1795280026695921900; trying backup.",
+        ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpeditd2v7\\records.json.corrupt_1795280026708719900; trying backup.",
+        ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmproym1h62\\records.json.corrupt_1795280026723334100; trying backup.",
+        ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpcgpfsupv\\records.json.corrupt_1795280026737489700; trying backup.",
+        ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmptmdodvrp\\records.json.corrupt_1795280026762123800; trying backup.",
+        ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpmm5yj1a7\\records.json.corrupt_1795280026778553900; trying backup.",
+        ".Warning: invalid records moved to ~\\AppData\\Local\\Temp\\tmpo0ouglrw\\records.json.corrupt_1795280026800668100; trying backup.",
+        "..............................",
+        "----------------------------------------------------------------------",
+        "Ran 261 tests in 15.663s",
+        "OK"
+      ]
+    },
+    "gates": {
+      "artifacts": [
+        ".aikit/codebase_map.md"
+      ]
+    },
+    "delivery": {
+      "commit": "",
+      "short": "",
+      "pushed": false,
+      "push_error": null,
+      "empty": false,
+      "timestamp": "2026-11-21T19:53:53"
+    },
+    "timestamp": "2026-11-21T19:31:35",
+    "dirty_targets": []
+  },
+  "history": []
+}

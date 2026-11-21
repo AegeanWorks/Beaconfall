@@ -6,4 +6,4 @@ extracted, redistributed or included in a mod without a grant.
 
 | Path or pattern | Type | Rights holder | License | Notes |
 |---|---|---|---|---|
-| `assets/` | art, audio, level data | AegeanWorks | AGL-1.1 | Replace with the real inventory |
+| `assets/screenshots/` | gameplay screenshots | AegeanWorks | AGL-1.1 | Player captures; all game visuals are rendered procedurally, no bundled art or audio |

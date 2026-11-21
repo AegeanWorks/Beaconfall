@@ -5,6 +5,8 @@
 .aikit/*.corrupt_*
 .aikit/*.log
 .aikit/reforge.reviews/
+.aikit/cache/
 __pycache__/
 *.py[cod]
 node_modules/
+frame.png

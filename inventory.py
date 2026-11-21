@@ -3,4 +3,11 @@
 if __name__ == "__main__":
     print('cli|demo|--scripted')
     print('cli|inventory|inventory.py')
-    print('handler|run|demo-run')
+    print('key|start|space')
+    print('key|restart|r')
+    print('key|course|f')
+    print('key|ghost|g')
+    print('key|pause|p')
+    print('key|boost|left_shift')
+    print('axis|forward|w/s')
+    print('axis|steer|a/d')

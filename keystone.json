@@ -1,0 +1,8 @@
+{
+  "schema": 2,
+  "name": "beaconfall",
+  "description": "A downhill racing time trial built with Keystone.",
+  "game": "beaconfall:Game",
+  "assets": [],
+  "startup_scene": null
+}

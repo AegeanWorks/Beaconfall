@@ -1,5 +1,439 @@
 {
   "version": 1,
-  "active_task": null,
-  "checkpoints": []
+  "active_task": {
+    "task_id": "beaconfall-game",
+    "last_phase": "phase 4",
+    "active_phase": 4,
+    "status": "in_progress",
+    "updated_at": 1795273956.6384315,
+    "owner": "opencode:session",
+    "lease_until": 1795281156.6384315,
+    "started_by": "codex:beaconfall",
+    "continuations": [
+      {
+        "agent": "opencode:session",
+        "from": "codex:beaconfall",
+        "at": 1795216358.6443615
+      }
+    ],
+    "workspaces": [
+      {
+        "name": "beaconfall",
+        "path": "projects/beaconfall"
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 2",
+      "phase_num": 2,
+      "description": "[1/2] Persist the best-run ghost trace in the record file so the ghost survives a relaunch, with a bounded, rounded representation and backward-compatible loading; LiveGame saves/restores it; [2/2] failing-first tests plus README update.",
+      "files_affected": [],
+      "status": "in_progress",
+      "timestamp": 1795260729.8749104,
+      "timestamp_str": "2026-11-21 14:32:09",
+      "agent": "opencode:session",
+      "impact_assessment": {
+        "why": "Best times, splits, near stats and streaks persist, but the ghost trace is session-only, so the visual comparison vanishes on relaunch.",
+        "benefits": "The ghost becomes a durable reward consistent with the other persisted bests.",
+        "risks": "contract: Records gains a traces field plus load_traces and a finish_run argument; JSON size; concurrency: same lock; state: capped samples, rounded values, invalid data quarantines",
+        "mitigation": "Tests for round-trip, old-file default, cap, invalid values and LiveGame restore; check file stays under the decode limit; run all 5 project gates."
+      },
+      "plan_digest": "7a604a73a5248693c2a41a46c066c566d6f10b5c47522d162b5b72c4455cd31c",
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 2",
+      "phase_num": 2,
+      "description": "Overlay the best-run ghost's current distance as a marker on the HUD course minimap, derived from the best trace and elapsed time; distinct from the boulder/checkpoint/pickup markers; no simulation change.",
+      "files_affected": [],
+      "status": "in_progress",
+      "timestamp": 1795268650.315902,
+      "timestamp_str": "2026-11-21 16:44:10",
+      "agent": "opencode:session",
+      "impact_assessment": {
+        "why": "The minimap shows the car and upcoming obstacles but not where the best-run ghost is, so the spatial comparison is missing from that view.",
+        "benefits": "Reuses the best trace and minimap; no new state or engine change.",
+        "risks": "contract: adds a ghost marker char to minimap rows; dependency: best_traces/ghost_state; concurrency: none; state: derived from elapsed/distance",
+        "mitigation": "Failing tests for ghost marker presence when ahead/behind and absence without a trace; run all 5 project gates."
+      },
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 4",
+      "phase_num": 4,
+      "description": "Minimap ghost marker: the best-run ghost's distance (interpolated by elapsed) shows as G on the HUD course strip when ahead; 246 tests pass, demo verified G at 30m and absence at 10m, all 5 gates pass. Left uncommitted (no commit authorization).",
+      "files_affected": [
+        "beaconfall.py",
+        "tests/test_race.py",
+        "README.md"
+      ],
+      "status": "in_progress",
+      "timestamp": 1795269348.9205012,
+      "timestamp_str": "2026-11-21 16:55:48",
+      "agent": "opencode:session",
+      "checklists": "passed",
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 2",
+      "phase_num": 2,
+      "description": "Add an in-world speedometer: a row of glowing bars on the car lights up proportionally to current speed, using a fixed node pool and frozen-material swaps, cleared/updated by speed each frame.",
+      "files_affected": [],
+      "status": "in_progress",
+      "timestamp": 1795269837.0684018,
+      "timestamp_str": "2026-11-21 17:03:57",
+      "agent": "opencode:session",
+      "impact_assessment": {
+        "why": "Speed is only a HUD number; a visible gauge on the car gives a diegetic sense of acceleration.",
+        "benefits": "Reuses fixed node pool and material-swap patterns; no simulation or storage change.",
+        "risks": "contract: adds a constant, a node pool and a material; dependency: frozen Transform/Material; concurrency: none; state: derived from speed each frame",
+        "mitigation": "Failing tests for bar count, lit proportion with speed, no bars at rest and reset behavior; run all 5 project gates."
+      },
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 4",
+      "phase_num": 4,
+      "description": "In-world speedometer: 8 glowing bars on the car light proportionally to speed (0/2/4/8 at 0/7.5/15/30 m/s), using a scene node pool and material swaps; 248 tests pass, all 5 project gates pass. Left uncommitted (no commit authorization).",
+      "files_affected": [
+        "beaconfall.py",
+        "tests/test_race.py",
+        "README.md"
+      ],
+      "status": "in_progress",
+      "timestamp": 1795270494.58268,
+      "timestamp_str": "2026-11-21 17:14:54",
+      "agent": "opencode:session",
+      "checklists": "passed",
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 2",
+      "phase_num": 2,
+      "description": "Add a proximity warning: when the next boulder is within a short distance and the car's lateral gap is within the near-miss band, show a TOO CLOSE HUD hint derived from the crossing geometry; no simulation change.",
+      "files_affected": [],
+      "status": "in_progress",
+      "timestamp": 1795270742.4085083,
+      "timestamp_str": "2026-11-21 17:19:02",
+      "agent": "opencode:session",
+      "impact_assessment": {
+        "why": "The near-miss mechanic rewards close passes but gives no live warning while approaching one, so the player only learns after the crossing.",
+        "benefits": "Derived from course_rocks and lateral position; reuses NEAR_MISS_GAP; no state or storage.",
+        "risks": "contract: adds one helper and one HUD label; dependency: course_rocks/NEAR_MISS_GAP; concurrency: none; state: read-only",
+        "mitigation": "Failing tests for hint when close, absent when far/wide, and HUD presence; run all 5 project gates."
+      },
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 4",
+      "phase_num": 4,
+      "description": "Proximity warning: TOO CLOSE HUD hint when the next boulder is within 20m and the car's lateral gap is inside the near-miss band; 251 tests pass, demo verified close/far/wide cases, all 5 project gates pass. Left uncommitted (no commit authorization).",
+      "files_affected": [
+        "beaconfall.py",
+        "tests/test_race.py",
+        "README.md"
+      ],
+      "status": "in_progress",
+      "timestamp": 1795271129.906483,
+      "timestamp_str": "2026-11-21 17:25:29",
+      "agent": "opencode:session",
+      "checklists": "passed",
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 2",
+      "phase_num": 2,
+      "description": "Add a remaining-time bar to the HUD: an ASCII gauge filled proportionally to remaining / START_TIME, shown while racing and derived from existing state.",
+      "files_affected": [],
+      "status": "in_progress",
+      "timestamp": 1795271491.7793074,
+      "timestamp_str": "2026-11-21 17:31:31",
+      "agent": "opencode:session",
+      "impact_assessment": {
+        "why": "The numeric timer requires reading to judge how much time is left; a shrinking bar gives an instant visual sense of the budget.",
+        "benefits": "Derived from remaining and START_TIME; no simulation or storage change.",
+        "risks": "contract: adds one helper and one HUD label; dependency: START_TIME; concurrency: none; state: read-only",
+        "mitigation": "Failing tests for full/empty/partial bar and HUD presence; run all 5 project gates."
+      },
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 4",
+      "phase_num": 4,
+      "description": "Remaining-time bar: HUD shows a 20-cell ASCII gauge shrinking with remaining / START_TIME; 253 tests pass, demo verified full/half/near-empty/empty bars, all 5 project gates pass. Left uncommitted (no commit authorization).",
+      "files_affected": [
+        "beaconfall.py",
+        "tests/test_race.py",
+        "README.md"
+      ],
+      "status": "in_progress",
+      "timestamp": 1795272148.8958862,
+      "timestamp_str": "2026-11-21 17:42:28",
+      "agent": "opencode:session",
+      "checklists": "passed",
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 2",
+      "phase_num": 2,
+      "description": "Add a checkpoint countdown to the HUD: show how many checkpoints remain (e.g. '2 LEFT'), derived from the checkpoint count; replace the raw count display with a clearer remaining view.",
+      "files_affected": [],
+      "status": "in_progress",
+      "timestamp": 1795272244.5947254,
+      "timestamp_str": "2026-11-21 17:44:04",
+      "agent": "opencode:session",
+      "impact_assessment": {
+        "why": "The HUD shows 'CHECKPOINT n/3' which requires mental subtraction to know how many remain; a direct countdown is clearer.",
+        "benefits": "Derived from the checkpoint count; no simulation or storage change.",
+        "risks": "contract: adds one helper and adjusts one HUD label; dependency: none; concurrency: none; state: read-only",
+        "mitigation": "Failing tests for remaining count at each checkpoint and HUD text; run all 5 project gates."
+      },
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 4",
+      "phase_num": 4,
+      "description": "Checkpoint countdown: HUD shows CHECKPOINTS n LEFT derived from checkpoint count; 255 tests pass, demo verified 3/2/1/0, all 5 project gates pass. Left uncommitted (no commit authorization).",
+      "files_affected": [
+        "beaconfall.py",
+        "tests/test_race.py",
+        "README.md"
+      ],
+      "status": "in_progress",
+      "timestamp": 1795272431.7376564,
+      "timestamp_str": "2026-11-21 17:47:11",
+      "agent": "opencode:session",
+      "checklists": "passed",
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 2",
+      "phase_num": 2,
+      "description": "Persist a per-course best-finish count in records, restored by LiveGame and shown on the ready screen, distinct from lifetime finishes and golds.",
+      "files_affected": [],
+      "status": "in_progress",
+      "timestamp": 1795272524.261381,
+      "timestamp_str": "2026-11-21 17:48:44",
+      "agent": "opencode:session",
+      "impact_assessment": {
+        "why": "The record file tracks finishes and golds but not how many times a player has completed each specific course.",
+        "benefits": "Reuses the atomic finish_run writer and Records dataclass.",
+        "risks": "contract: Records gains a finishes map plus RunResult is always a finish; JSON keys numeric; concurrency: same lock; state: monotonic",
+        "mitigation": "Tests for old-file default, per-course accumulation, invalid values and LiveGame restore; run all 5 project gates."
+      },
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 2",
+      "phase_num": 2,
+      "description": "Re-plan: per-course finish counts already exist via totals; instead persist a bounded run history (last N finishes with course, time, medal) restored by LiveGame, distinct from the single last_sessions record.",
+      "files_affected": [],
+      "status": "in_progress",
+      "timestamp": 1795272554.3193295,
+      "timestamp_str": "2026-11-21 17:49:14",
+      "agent": "opencode:session",
+      "impact_assessment": {
+        "why": "last_sessions keeps only the most recent run per course; a short cross-course history gives players a reviewable log of recent finishes.",
+        "benefits": "Reuses the atomic finish_run writer; bounded list avoids unbounded growth.",
+        "risks": "contract: Records gains a history field plus RunResult use; JSON validation; concurrency: same lock; state: capped list",
+        "mitigation": "Tests for cap, ordering, old-file default, invalid values and LiveGame restore; run all 5 project gates."
+      },
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 4",
+      "phase_num": 4,
+      "description": "Run history: persist a capped 5-entry cross-course finish log, restored by LiveGame with a ready-screen display of the last 3; fixed a frozen-dataclass cap bug via in-place deletion; 259 tests pass, all 5 project gates pass. Left uncommitted (no commit authorization).",
+      "files_affected": [
+        "records.py",
+        "live_game.py",
+        "tests/test_records.py",
+        "README.md"
+      ],
+      "status": "in_progress",
+      "timestamp": 1795273293.609206,
+      "timestamp_str": "2026-11-21 18:01:33",
+      "agent": "opencode:session",
+      "checklists": "passed",
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 2",
+      "phase_num": 2,
+      "description": "Add a HUD readout of remaining boost pickups: show 'N PICKUPS LEFT' derived from PICKUP_STATIONS length minus pickups_collected, while racing.",
+      "files_affected": [],
+      "status": "in_progress",
+      "timestamp": 1795273537.8702884,
+      "timestamp_str": "2026-11-21 18:05:37",
+      "agent": "opencode:session",
+      "impact_assessment": {
+        "why": "Players cannot see how many boost pickups remain ahead, so they may miss a chance to refill before the finish.",
+        "benefits": "Derived from existing pickup state; no simulation or storage change.",
+        "risks": "contract: adds one helper and one HUD label; dependency: PICKUP_STATIONS/pickups_collected; concurrency: none; state: read-only",
+        "mitigation": "Failing tests for remaining count at each pickup and HUD presence; run all 5 project gates."
+      },
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "beaconfall-game",
+      "phase": "phase 4",
+      "phase_num": 4,
+      "description": "Pickup readout: HUD shows N PICKUPS LEFT derived from PICKUP_STATIONS minus pickups_collected, hidden when none remain; 261 tests pass, demo verified 3/2/1/0, all 5 project gates pass. Left uncommitted (no commit authorization).",
+      "files_affected": [
+        "beaconfall.py",
+        "tests/test_race.py",
+        "README.md"
+      ],
+      "status": "in_progress",
+      "timestamp": 1795273956.6384315,
+      "timestamp_str": "2026-11-21 18:12:36",
+      "agent": "opencode:session",
+      "checklists": "passed",
+      "workspaces": [
+        {
+          "name": "beaconfall",
+          "path": "projects/beaconfall"
+        }
+      ]
+    },
+    {
+      "task_id": "reforge:run-1",
+      "phase": "reforge run",
+      "phase_num": 3,
+      "description": "run started (start=2, step=1, stop=None)",
+      "files_affected": [],
+      "status": "in_progress",
+      "timestamp": 1795278654.2655134,
+      "timestamp_str": "2026-11-21 19:30:54",
+      "agent": "opencode",
+      "operator_task": "beaconfall-game"
+    },
+    {
+      "task_id": "reforge:run-1",
+      "phase": "reforge stage 1",
+      "phase_num": 3,
+      "description": "Reforge stage 1: window 1, 1 commit(s), 18 file(s) reviewed (unreviewed), 0 finding(s), 0 repaired, empty \u2014 nothing to commit",
+      "files_affected": [],
+      "status": "in_progress",
+      "timestamp": 1795278695.4473007,
+      "timestamp_str": "2026-11-21 19:31:35",
+      "agent": "opencode",
+      "operator_task": "beaconfall-game"
+    },
+    {
+      "task_id": "reforge:run-1",
+      "phase": "reforge stage 1",
+      "phase_num": 3,
+      "description": "Reforge stage 1: stage 1 host review reviewed; run completed; coverage 18/18",
+      "files_affected": [],
+      "status": "completed",
+      "timestamp": 1795279136.1299787,
+      "timestamp_str": "2026-11-21 19:38:56",
+      "agent": "opencode",
+      "operator_task": "beaconfall-game"
+    },
+    {
+      "task_id": "reforge:run-1",
+      "phase": "reforge stage 1",
+      "phase_num": 3,
+      "description": "Reforge stage 1: stage 1 host review reviewed; run completed; coverage 18/18",
+      "files_affected": [],
+      "status": "completed",
+      "timestamp": 1795280033.8796165,
+      "timestamp_str": "2026-11-21 19:53:53",
+      "agent": "opencode",
+      "operator_task": "beaconfall-game"
+    }
+  ]
 }

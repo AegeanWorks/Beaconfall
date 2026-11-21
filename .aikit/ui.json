@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "surfaces": {
+    "game": {
+      "paths": [
+        "beaconfall.py"
+      ]
+    }
+  },
+  "protected": [
+    "tests/**"
+  ],
+  "commands": {
+    "fast": "python -m unittest discover -s tests",
+    "snapshot": "",
+    "interaction": "",
+    "interaction_timeout": 120
+  },
+  "style": {
+    "theme_paths": []
+  },
+  "limits": {
+    "max_files": 12,
+    "max_lines": 300,
+    "max_added_lines": 200,
+    "max_deleted_lines": 100
+  }
+}
