@@ -1,6 +1,10 @@
 # Beaconfall
 
-[![Built with AIKit](https://img.shields.io/badge/built%20with-AIKit-6f42c1)](https://github.com/AegeanWorks/AIKit)
+<!-- aegean:media:start -->
+<p align="center"><img src="assets/social-preview.svg" alt="Beaconfall social preview" width="100%"></p>
+<p align="center"><a href="LICENSE"><img src="https://img.shields.io/badge/license-AGL--1.1-7048e8" alt="License"></a> <a href="https://github.com/AegeanWorks/AIKit"><img src="https://img.shields.io/badge/AIKit-integrated-6f42c1" alt="AIKit Integrated"></a></p>
+<!-- aegean:media:end -->
+
 
 Beaconfall is a 3D downhill time trial built with Keystone. Drive 400 metres through a pine-lined mountain course, steer around boulders and reach the finish before the clock runs out. No single stationary line avoids every obstacle. Three checkpoints add time and their gates pulse and turn green with a brief particle burst and a rising chime as you clear them; the HUD counts how many remain; collisions slow the car, cost two seconds, flash it red, jolt the camera, play a low tone and report which side of the boulder was struck. The HUD shows a progress bar with checkpoint ticks and how far the next checkpoint or finish is, and a win sprays a brief confetti burst at the finish line, the finish screen marks a new session best with a NEW RECORD ribbon, shows how much faster or slower the run was than the previous best, lists each checkpoint split with its delta from the best run, totals the checkpoint bonus and collision penalty, and marks a best medal grade when improved.
 
@@ -61,6 +65,12 @@ beaconfall/
 ├── README.md        <- project guide
 └── .aikit/          <- project memory
 ```
+
+<!-- aegean:brand-assets:start -->
+## 🎨 Brand Assets
+
+> **AI-Generated Brand Artwork.** The banner and logo are **AI-generated brand assets**. They are illustrative and may not literally depict every feature or the full project scope.
+<!-- aegean:brand-assets:end -->
 
 ## License
 

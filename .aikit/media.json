@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "name": "beaconfall",
+  "repo": "Beaconfall",
+  "has_ui": true,
+  "ui_kind": "game",
+  "palette": [
+    "#120907",
+    "#302612",
+    "#f58c66",
+    "#ccf58e"
+  ],
+  "motif": "notes",
+  "layout": "editorial",
+  "assets": {
+    "logo": {
+      "path": "assets/logo.svg",
+      "status": "approved",
+      "commit": "",
+      "generated_at": "2026-11-21T20:48:21",
+      "review": {
+        "status": "approved",
+        "reviewer": "agent:opencode:session",
+        "method": "structural",
+        "notes": "Well-formed SVG, 512x512 viewBox, title 'Beaconfall logo', AEGEANWORKS identity and project palette present; valid local fallback mark.",
+        "score": null,
+        "reviewed_at": "2026-11-21T20:49:40"
+      }
+    },
+    "social_preview": {
+      "path": "assets/social-preview.svg",
+      "status": "approved",
+      "commit": "",
+      "generated_at": "2026-11-21T20:48:21",
+      "review": {
+        "status": "approved",
+        "reviewer": "agent:opencode:session",
+        "method": "structural",
+        "notes": "Well-formed SVG, 1280x640 viewBox, correct Beaconfall title and description, AEGEANWORKS GAME identity and topics present.",
+        "score": null,
+        "reviewed_at": "2026-11-21T20:49:54"
+      }
+    }
+  },
+  "screenshots": []
+}
