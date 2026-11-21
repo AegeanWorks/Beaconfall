@@ -24,5 +24,11 @@
   "ui_kind": "game",
   "ui_evidence": [],
   "ui_checked_at": "2026-11-21",
-  "ui_source": "manual"
+  "ui_source": "manual",
+  "archived": true,
+  "archived_at": "2026-11-21",
+  "archive_reason": "Test bed for validating AIKit project gates, Reforge and Keystone integration; game work pushed to its repo, project retired.",
+  "archive_repo": "AegeanWorks/Beaconfall",
+  "archive_description": "[ARCHIVED] Beaconfall is a 3D downhill time trial built with Keystone. Drive 400 metres through a pine-lined mountain course, steer around boulders and reach the finish before the clock runs out. No single stationary line avoids every obstacle.",
+  "archive_origin": "projects/beaconfall"
 }

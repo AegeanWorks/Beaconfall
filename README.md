@@ -8,6 +8,8 @@
 
 Beaconfall is a 3D downhill time trial built with Keystone. Drive 400 metres through a pine-lined mountain course, steer around boulders and reach the finish before the clock runs out. No single stationary line avoids every obstacle. Three checkpoints add time and their gates pulse and turn green with a brief particle burst and a rising chime as you clear them; the HUD counts how many remain; collisions slow the car, cost two seconds, flash it red, jolt the camera, play a low tone and report which side of the boulder was struck. The HUD shows a progress bar with checkpoint ticks and how far the next checkpoint or finish is, and a win sprays a brief confetti burst at the finish line, the finish screen marks a new session best with a NEW RECORD ribbon, shows how much faster or slower the run was than the previous best, lists each checkpoint split with its delta from the best run, totals the checkpoint bonus and collision penalty, and marks a best medal grade when improved.
 
+> **Archived**: Test bed for validating AIKit project gates, Reforge and Keystone integration; game work pushed to its repo, project retired. (archived 2026-11-21). This project is read-only; its GitHub repository is archived.
+
 ## Cold-Start Quick Reference
 
 - **Runtime Prerequisites**: Python 3.10 or newer, an OpenGL 3.3-capable driver, and the Keystone checkout alongside this project at `../keystone`.
