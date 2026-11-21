@@ -52,6 +52,7 @@ beaconfall/
 ├── start-beaconfall.cmd <- Windows one-click launcher
 ├── start-beaconfall.sh  <- macOS and Linux launcher
 ├── keystone.json    <- Keystone project manifest
+├── assets/          <- reviewed brand SVGs
 ├── tests/           <- race tests
 ├── LICENSE          <- game license
 ├── LICENSES/        <- license texts
